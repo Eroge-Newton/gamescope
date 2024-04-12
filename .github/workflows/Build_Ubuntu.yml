@@ -16,7 +16,7 @@ jobs:
     - uses: actions/checkout@v3
     
     - name: Dependency 
-      run: sudo apt install gcc g++ cmake libpipewire-0.3-0 hwdata libvulkan-dev ninja-build meson libwayland-client0 libwayland-dev libegl-dev # pkgconf libgtk-dev 
+      run: sudo apt install gcc g++ cmake libpipewire-0.3-0 hwdata libvulkan-dev ninja-build meson libwayland-client0 libwayland-dev libegl-dev wayland-protocols # pkgconf libgtk-dev 
 
     - name: Build Start Git Clone
       run: mkdir GameScope 
