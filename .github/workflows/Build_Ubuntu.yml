@@ -10,7 +10,7 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-24.04 # ubuntu-latest
+    runs-on: ubuntu-23.10 # ubuntu-latest
 
     steps:
     - uses: actions/checkout@v3
