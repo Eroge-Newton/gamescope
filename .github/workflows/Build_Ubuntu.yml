@@ -1,0 +1,41 @@
+name: Build on Ubuntu CI
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Dependency 
+      run: sudo apt install gcc g++ cmake libpipewire-0.3-0 hwdata libvulkan-deb ninja-build 
+
+    - name: Build Start Git Clone
+      run: mkdir GameScope 
+      
+    - name: Git 
+      run:  |
+            git clone https://github.com/Eroge-Newton/gamescope.git 
+            git submodule update --init --recursive 
+
+    - name: Build 
+      run:  | 
+            meson build/ 
+            ninja -C build/ 
+      
+    - name: make
+      run: make
+      
+    - name: make check
+      run: make check
+      
+    - name: make distcheck
+      run: make distcheck
